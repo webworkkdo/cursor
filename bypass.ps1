@@ -154,8 +154,6 @@ function Modify-MachineCodeConfig {
 
             # Verify backup
             if (Test-Path $backupPath) {
-                $backupSize = ( Mejor
-
                 $backupSize = (Get-Item $backupPath).Length
                 $originalSize = (Get-Item $configPath).Length
                 if ($backupSize -eq $originalSize) {
@@ -249,9 +247,9 @@ function Modify-MachineCodeConfig {
                 $actualValue = $verifyConfig.$key
 
                 if ($actualValue -eq $expectedValue) {
-                    $verificationResults += "✓ $key: Verification passed"
+                    $verificationResults += "✓ ${key}: Verification passed"
                 } else {
-                    $verificationResults += "✗ $key: Verification failed (Expected: $expectedValue, Actual: $actualValue)"
+                    $verificationResults += "✗ ${key}: Verification failed (Expected: $expectedValue, Actual: $actualValue)"
                     $verificationPassed = $false
                 }
             }
